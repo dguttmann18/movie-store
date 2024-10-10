@@ -1,0 +1,32 @@
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: hsla(12, 93%, 42%, 0.264);
+  font-family: Arial, sans-serif;
+}
+
+input {
+  border-radius: 5px;
+  height: 30px;
+  width: 450px;
+}
+
+
+.box {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: left;
+  max-width: 450px;
+  display: inline-block;
+}
+
+
+.input-box {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
