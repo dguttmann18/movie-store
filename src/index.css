@@ -112,8 +112,121 @@ input {
 
 .input-box {
   margin-bottom: 20px;
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
 }
 
 .command-box {
   float: right;
+}
+
+.invalid-login {
+  font-size: 1rem;
+  font-family: Arial, sans-serif;
+  color: hsla(10, 90%, 50%);
+}
+
+.card {
+  border: 1px solid hsl(0, 0%, 80%);
+  border-radius: 10px;
+  box-shadow: 5px 5px 5px hsla(0, 0%, 0%, 0.1);
+  padding: 20px;
+  margin: 10px;
+  text-align: center;
+  max-width: 250px;
+  display: inline-block;
+}
+
+.card .card-image {
+  height: 200px;
+  width: 200px;
+  border-radius: 10%;
+  margin-bottom: 10px;
+}
+
+.card .card-image:hover {
+  height: 250px;
+  width: 250px;
+  transition: 0.125s ease;
+}
+
+.card .card-title {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  color: hsl(0, 0%, 20%);
+}
+
+.card .card-year {
+  margin-top: 0;
+}
+
+.card .card-text {
+  font-family: Arial, sans-serif;
+  color: hsl(0, 0%, 30%);
+}
+
+.reviews-button {
+  background-color: hsl(115, 100%, 40%);
+}
+
+.reviews-button:hover {
+  background-color: hsl(115, 100%, 35%);
+}
+
+
+.trailer-button {
+  background-color: hsl(10, 90%, 50%);
+}
+
+.trailer-button:hover {
+  background-color: hsl(10, 90%, 45%);
+}
+
+.watchlist-button {
+  font-weight: bold;
+  background-color: hsl(205, 90%, 60%);
+}
+
+.watchlist-button:hover {
+  background-color: hsl(205, 90%, 55%);
+}
+
+.search-bar {
+  justify-items: center;
+  margin-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
+}
+
+.search-bar button {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  margin-left: 8px;
+  background-color: hsl(205, 90%, 60%);
+}
+
+.search-bar button:hover {
+  background-color: hsl(205, 90%, 55%);
+}
+
+.search-bar input {
+  font-family: Arial, sans-serif;
+  font-size: 1rem;
+}
+
+.card-commands button {
+  margin: 2px;
+}
+
+.movie-card-sceeen {
+  justify-items: center;
+  margin-top: 0px;
+  margin-left: 20px;
+  padding-left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  place-items: center;
 }

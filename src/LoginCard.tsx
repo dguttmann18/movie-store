@@ -1,5 +1,8 @@
+import { useState } from "react";
 
 function LoginCard() {
+  const [isInvalidLogin, setIsInvalidLogin] = useState(false);
+
   return (
     <div className="box">
       <div className="input-box">
@@ -14,9 +17,15 @@ function LoginCard() {
         <input type="password"></input>
       </div>
 
+      {isInvalidLogin && (
+        <label className="invalid-login">
+          Invalid login credentials provided!
+        </label>
+      )}
+
       <div className="command-box">
         <button>Login</button>
-        <br/>
+        <br />
         <a href="#">Forgot password?</a>
       </div>
     </div>
