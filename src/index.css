@@ -27,7 +27,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  place-items: center;
   min-width: 320px;
   min-height: 100vh;
   background-color: turquoise;
@@ -173,7 +172,6 @@ input {
   background-color: hsl(115, 100%, 35%);
 }
 
-
 .trailer-button {
   background-color: hsl(10, 90%, 50%);
 }
@@ -192,19 +190,28 @@ input {
 }
 
 .search-bar {
-  justify-items: center;
-  margin-top: 0px;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  place-items: center;
+  border: 1px solid hsl(0, 100%, 2%);
+  box-sizing: border-box;
+  padding: 0;
+  border-radius: 8px;
+  margin-left: 30%;
+  margin-top: 0;
 }
 
 .search-bar button {
   font-family: Arial, sans-serif;
   font-weight: bold;
-  margin-left: 8px;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  height: 40px;
+  box-sizing: border-box;
+  /* margin-left: 2px; */
   background-color: hsl(205, 90%, 60%);
+  border-radius: 0 8px 8px 0;
 }
 
 .search-bar button:hover {
@@ -214,6 +221,12 @@ input {
 .search-bar input {
   font-family: Arial, sans-serif;
   font-size: 1rem;
+  padding: 10px;
+  border: none;
+  outline: none;
+  height: 40px;
+  box-sizing: border-box;
+  border-radius: 8px 0 0 8px;
 }
 
 .card-commands button {
