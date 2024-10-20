@@ -1,9 +1,7 @@
 import MovieScreen from "./MovieScreen";
 
 function App() {
-  return (
-    <MovieScreen/>
-  );
+  return <MovieScreen />;
 }
 
 export default App;

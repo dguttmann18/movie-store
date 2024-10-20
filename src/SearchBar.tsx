@@ -1,23 +1,30 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "./MovieScreen";
 
 function SearchBar() {
-    const { searchValue, setSearchValue } = useContext(UserContext);
+  const [tempSearchValue, setTempSearchValue] = useState("");
+  const { searchValue, setSearchValue } = useContext(UserContext);
 
-  function handleSearchBoxChange(event: React.ChangeEvent<HTMLInputElement>) {
-    console.log("text changed");
-    setSearchValue(event.target.value);
+  function handleInputChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setTempSearchValue(event.target.value);
+  }
+
+  function handleSearchButtonClick() {
+    setSearchValue(tempSearchValue); // Update global search value
+    console.log("Search initiated with value:", tempSearchValue);
   }
 
   return (
     <div className="search-bar">
       <input
         type="text"
-        placeholder="Search for a move..."
-        value={searchValue}
-        onChange={handleSearchBoxChange}
+        placeholder="Search for a movie..."
+        value={tempSearchValue}
+        onChange={handleInputChange}
       />
-      <button type="submit">Search</button>
+      <button type="submit" onClick={handleSearchButtonClick}>
+        Search
+      </button>
     </div>
   );
 }

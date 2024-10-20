@@ -3,9 +3,12 @@ import robinsons from "./assets/robinsons.jpg";
 import nottingHill from "./assets/nottinghill.jpg";
 import barryLyndon from "./assets/barrylyndon.jpg";
 import SearchBar from "./SearchBar";
-import { useState, useContext, createContext } from "react";
+import React, { useState, createContext, useContext } from "react";
 
-export const UserContext = createContext("");
+export const UserContext = createContext({
+    searchValue: "",
+    setSearchValue: (value: string) => {}
+});
 
 function MovieScreen() {
   const movies: MovieCardData[] = [
@@ -29,11 +32,13 @@ function MovieScreen() {
     },
     {
       id: 4,
-      title: "Barry Ger",
+      title: "Barry Lyndon",
       year: 1975,
       picture: barryLyndon,
     },
   ];
+
+  const [searchValue, setSearchValue] = useState("");
 
   const movieContains = (m: MovieCardData, s: string): boolean => {
     if (m.title.toLowerCase().includes(s.toLowerCase())) return true;
@@ -44,31 +49,29 @@ function MovieScreen() {
     return false;
   };
 
-  const [searchValue, setSearchValue] = useState("");
-
-  const searchText: string = useContext(UserContext);
-
   const filteredMovies =
-    searchText === ""
+    searchValue === ""
       ? movies
-      : movies.filter((m) => movieContains(m, searchText));
+      : movies.filter((m) => movieContains(m, searchValue));
 
   return (
     <UserContext.Provider value={{ searchValue, setSearchValue }}>
-      <SearchBar />
-
-      <div className="movie-card-screen">
-        {filteredMovies.map((movie: MovieCardData) => (
-          <MovieCard
-            id={movie.id}
-            title={movie.title}
-            year={movie.year}
-            picture={movie.picture}
-            key={movie.id}
-          />
-        ))}
-      </div>
-    </UserContext.Provider>
+            <div className="movie-screen">
+                <SearchBar />
+                
+                <div className="movie-card-screen">
+                    {filteredMovies.map((movie: MovieCardData) => (
+                        <MovieCard
+                            key={movie.id}
+                            id={movie.id}
+                            title={movie.title}
+                            year={movie.year}
+                            picture={movie.picture}
+                        />
+                    ))}
+                </div>
+            </div>
+        </UserContext.Provider>
   );
 }
 
