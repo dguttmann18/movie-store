@@ -203,19 +203,71 @@ input {
   transform: translateX(-50%);
 }
 
-.search-bar button {
-  font-family: Arial, sans-serif;
-  font-weight: bold;
+.clear-button {
+  /* font-family: Arial, sans-serif; */
+  /* font-weight: bold; */
+  font-family: monospace;
   padding: 10px 15px;
   border: none;
   outline: none;
   height: 40px;
   box-sizing: border-box;
-  background-color: hsl(205, 90%, 60%);
+  /* background-color: hsl(205, 90%, 60%); */
+  background-color: white;
   border-radius: 0 8px 8px 0;
 }
 
-.search-bar button:hover {
+.sort-by-label {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  position: absolute;
+  top: 18px;
+  left: 67%;
+  transform: translateX(-20%);
+}
+
+.sort-by-select {
+  font-family: Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1rem;
+  padding-right: 5px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  box-sizing: border-box;
+  padding: 0;
+  position: absolute;
+  top: 40px;
+  left: 68%;
+  transform: translateX(-20%);
+}
+
+.empty-button {
+  /* font-family: Arial, sans-serif; */
+  /* font-weight: bold; */
+  font-family: monospace;
+  padding: 10px 15px;
+  border: none;
+  outline: none;
+  height: 40px;
+  box-sizing: border-box;
+  /* background-color: hsl(205, 90%, 60%); */
+  background-color: white;
+  border-radius: 0 8px 8px 0;
+}
+
+.empty-button:hover {
+  background-color: white;
+}
+
+.clear-button:hover {
   background-color: hsl(205, 90%, 55%);
 }
 

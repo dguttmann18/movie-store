@@ -3,11 +3,11 @@ import robinsons from "./assets/robinsons.jpg";
 import nottingHill from "./assets/nottinghill.jpg";
 import barryLyndon from "./assets/barrylyndon.jpg";
 import SearchBar from "./SearchBar";
-import React, { useState, createContext, useContext } from "react";
+import { useState, createContext } from "react";
 
 export const UserContext = createContext({
-    searchValue: "",
-    setSearchValue: (value: string) => {}
+  searchValue: "",
+  setSearchValue: (value: string) => {},
 });
 
 function MovieScreen() {
@@ -56,22 +56,26 @@ function MovieScreen() {
 
   return (
     <UserContext.Provider value={{ searchValue, setSearchValue }}>
-            <div className="movie-screen">
-                <SearchBar />
-                
-                <div className="movie-card-screen">
-                    {filteredMovies.map((movie: MovieCardData) => (
-                        <MovieCard
-                            key={movie.id}
-                            id={movie.id}
-                            title={movie.title}
-                            year={movie.year}
-                            picture={movie.picture}
-                        />
-                    ))}
-                </div>
-            </div>
-        </UserContext.Provider>
+      <div className="movie-screen">
+        <SearchBar />
+
+        <div className="movie-card-screen">
+          {filteredMovies.length === 0 ? (
+            <label>No movies to display</label>
+          ) : (
+            filteredMovies.map((movie: MovieCardData) => (
+              <MovieCard
+                key={movie.id}
+                id={movie.id}
+                title={movie.title}
+                year={movie.year}
+                picture={movie.picture}
+              />
+            ))
+          )}
+        </div>
+      </div>
+    </UserContext.Provider>
   );
 }
 
