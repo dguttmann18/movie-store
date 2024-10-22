@@ -2,12 +2,14 @@ import MovieCard, { MovieCardData } from "./MovieCard";
 import robinsons from "./assets/robinsons.jpg";
 import nottingHill from "./assets/nottinghill.jpg";
 import barryLyndon from "./assets/barrylyndon.jpg";
-import SearchBar from "./SearchBar";
+import SearchBar, { SortByOption } from "./SearchBar";
 import { useState, createContext } from "react";
 
-export const UserContext = createContext({
+export const SearchContext = createContext({
   searchValue: "",
   setSearchValue: (value: string) => {},
+  sortValue: "",
+  setSortValue: (value: string) => {},
 });
 
 function MovieScreen() {
@@ -39,6 +41,7 @@ function MovieScreen() {
   ];
 
   const [searchValue, setSearchValue] = useState("");
+  const [sortValue, setSortValue] = useState("");
 
   const movieContains = (m: MovieCardData, s: string): boolean => {
     if (m.title.toLowerCase().includes(s.toLowerCase())) return true;
@@ -54,16 +57,35 @@ function MovieScreen() {
       ? movies
       : movies.filter((m) => movieContains(m, searchValue));
 
+  const sortedMovies = [...filteredMovies].sort((a, b) => {
+    if (sortValue === "year") {
+      return a.year - b.year;
+    }
+
+    if (sortValue === "title") {
+      return a.title.localeCompare(b.title);
+    }
+
+    return 0;
+  });
+
+  const sortByOptions: SortByOption[] = [
+    { value: "year", text: "Year" },
+    { value: "title", text: "Title" },
+  ];
+
   return (
-    <UserContext.Provider value={{ searchValue, setSearchValue }}>
+    <SearchContext.Provider
+      value={{ searchValue, setSearchValue, sortValue, setSortValue }}
+    >
       <div className="movie-screen">
-        <SearchBar />
+        <SearchBar sortByOptions={sortByOptions} />
 
         <div className="movie-card-screen">
           {filteredMovies.length === 0 ? (
             <label>No movies to display</label>
           ) : (
-            filteredMovies.map((movie: MovieCardData) => (
+            sortedMovies.map((movie: MovieCardData) => (
               <MovieCard
                 key={movie.id}
                 id={movie.id}
@@ -75,7 +97,7 @@ function MovieScreen() {
           )}
         </div>
       </div>
-    </UserContext.Provider>
+    </SearchContext.Provider>
   );
 }
 

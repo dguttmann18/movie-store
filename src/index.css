@@ -189,30 +189,30 @@ input {
   background-color: hsl(205, 90%, 55%);
 }
 
-.search-bar {
-  display: inline-flex;
+.search-sort-container {
+  display: flex;
+  justify-content: center; /* Center align the entire container */
   align-items: center;
-  justify-content: center;
+  margin-top: 20px; /* Optional: Add spacing from the top */
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
   border: 1px solid hsl(0, 100%, 2%);
-  box-sizing: border-box;
-  padding: 0;
   border-radius: 8px;
-  position: absolute;
+  /* position: absolute;
   top: 20px;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
 }
 
 .clear-button {
-  /* font-family: Arial, sans-serif; */
-  /* font-weight: bold; */
   font-family: monospace;
   padding: 10px 15px;
   border: none;
   outline: none;
   height: 40px;
-  box-sizing: border-box;
-  /* background-color: hsl(205, 90%, 60%); */
   background-color: white;
   border-radius: 0 8px 8px 0;
 }
@@ -221,21 +221,23 @@ input {
   font-family: Arial, sans-serif;
   font-weight: bold;
   font-size: 1rem;
-  padding-right: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
+  margin-right: 10px;
+
+  /* box-sizing: border-box;
   padding: 0;
   position: absolute;
   top: 18px;
   left: 67%;
-  transform: translateX(-20%);
+  transform: translateX(-20%); */
 }
 
 .sort-by-select {
   font-family: Arial, sans-serif;
-  font-weight: bold;
+  font-size: 1rem;
+  padding: 5px;
+  border-radius: 8px;
+
+  /* font-family: Arial, sans-serif;
   font-size: 1rem;
   padding-right: 5px;
   display: inline-flex;
@@ -246,7 +248,13 @@ input {
   position: absolute;
   top: 40px;
   left: 68%;
-  transform: translateX(-20%);
+  transform: translateX(-20%); */
+}
+
+.sort-container {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
 }
 
 .empty-button {
