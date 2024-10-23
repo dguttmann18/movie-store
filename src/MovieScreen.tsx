@@ -10,6 +10,8 @@ export const SearchContext = createContext({
   setSearchValue: (value: string) => {},
   sortValue: "",
   setSortValue: (value: string) => {},
+  isSortDown: false,
+  setIsSortDown: (value: boolean) => {},
 });
 
 function MovieScreen() {
@@ -42,6 +44,7 @@ function MovieScreen() {
 
   const [searchValue, setSearchValue] = useState("");
   const [sortValue, setSortValue] = useState("");
+  const [isSortDown, setIsSortDown] = useState(false);
 
   const movieContains = (m: MovieCardData, s: string): boolean => {
     if (m.title.toLowerCase().includes(s.toLowerCase())) return true;
@@ -57,17 +60,20 @@ function MovieScreen() {
       ? movies
       : movies.filter((m) => movieContains(m, searchValue));
 
-  const sortedMovies = [...filteredMovies].sort((a, b) => {
-    if (sortValue === "year") {
-      return a.year - b.year;
-    }
+      let sortedMovies = [...filteredMovies].sort((a, b) => {
+        if (sortValue === "year") {
+          return a.year - b.year; // Sort by year (ascending)
+        }
 
-    if (sortValue === "title") {
-      return a.title.localeCompare(b.title);
-    }
+        if (sortValue === "title") {
+          return a.title.localeCompare(b.title); // Sort by title (alphabetical)
+        }
+        
+        return 0;
+    });
 
-    return 0;
-  });
+    if (isSortDown)
+        sortedMovies.reverse();
 
   const sortByOptions: SortByOption[] = [
     { value: "year", text: "Year" },
@@ -76,7 +82,7 @@ function MovieScreen() {
 
   return (
     <SearchContext.Provider
-      value={{ searchValue, setSearchValue, sortValue, setSortValue }}
+      value={{ searchValue, setSearchValue, sortValue, setSortValue, isSortDown, setIsSortDown }}
     >
       <div className="movie-screen">
         <SearchBar sortByOptions={sortByOptions} />

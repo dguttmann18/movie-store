@@ -3,6 +3,9 @@ export interface MovieCardData {
     title: string;
     year: number;
     picture: string;
+    trailer?: string;
+    review?: string;
+    isOnWatchList?: boolean;
 };
 
 function MovieCard(props : MovieCardData) {
@@ -14,7 +17,7 @@ function MovieCard(props : MovieCardData) {
       <h3 className="card-year">({props.year})</h3>
 
       <div className="card-commands">
-        <button className="reviews-button">Reviews</button>
+        <button className="reviews-button">Review</button>
         <button className="trailer-button">Trailer</button>
         <button className="watchlist-button">Add to Watch List</button>
       </div>

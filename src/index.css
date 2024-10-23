@@ -236,19 +236,18 @@ input {
   font-size: 1rem;
   padding: 5px;
   border-radius: 8px;
+}
 
-  /* font-family: Arial, sans-serif;
+.sort-direction-button {
+  font-family: Arial, sans-serif;
   font-size: 1rem;
-  padding-right: 5px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  box-sizing: border-box;
-  padding: 0;
-  position: absolute;
-  top: 40px;
-  left: 68%;
-  transform: translateX(-20%); */
+  font-weight: bolder;
+  padding: 5px;
+  border-radius: 8px;
+  margin-left: 5px;
+  background-color: lightgray;
+  height: 32px;
+  border: 1px solid hsl(0, 100%, 2%);
 }
 
 .sort-container {
